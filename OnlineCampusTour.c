@@ -391,10 +391,32 @@ Node* loadList (Node* head){
     return head;
 }
 
+Node* alphabeticalOrCustom (Node* head){
+    int option = 0;
+
+    do {
+        printf("\n1 - For Alphabetical insert\n");
+        printf("2 - For custom insert\n");
+        printf("Enter your choice: ");
+        scanf("%d", &option);
+        getchar();
+
+        if (option == 1){
+            head = insertAlphabetical(head);
+        }
+        else if (option == 2){
+            head = insertCustom(head);
+        }
+        else {
+            printf("\n\n--Invalid input, try again!--\n\n");
+        }
+    } while (option != 1 && option != 2);
+    return head;
+}
+
 int main (){
     char choice = ' ';
     Node* head = NULL;
-    int option = 0;
 
     do {
         choice = menu();
@@ -408,23 +430,7 @@ int main (){
 
             case 'a':
             case 'A':
-                do {
-                    printf("\n1 - For Alphabetical insert\n");
-                    printf("2 - For custom insert\n");
-                    printf("Enter your choice: ");
-                    scanf("%d", &option);
-                    getchar();
-
-                    if (option == 1){
-                        head = insertAlphabetical(head);
-                    }
-                    else if (option == 2){
-                        head = insertCustom(head);
-                    }
-                    else {
-                        printf("\n\n--Invalid input, try again!--\n\n");
-                    }
-                } while (option != 1 && option != 2);
+                head = alphabeticalOrCustom(head);
                 break;
 
             case 'd':
