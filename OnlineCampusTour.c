@@ -401,15 +401,11 @@ Node* alphabeticalOrCustom (Node* head){
         scanf("%d", &option);
         getchar();
 
-        if (option == 1){
-            head = insertAlphabetical(head);
-        }
-        else if (option == 2){
-            head = insertCustom(head);
-        }
-        else {
+        if (option != 1 && option != 2){
             printf("\n\n--Invalid input, try again!--\n\n");
+            continue;
         }
+        head = (option == 1) ? insertAlphabetical(head) : insertCustom(head);
     } while (option != 1 && option != 2);
     return head;
 }
